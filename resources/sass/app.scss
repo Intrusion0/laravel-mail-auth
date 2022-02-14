@@ -6,3 +6,52 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// General rules
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: purple;
+    width: 60%;
+    margin: 0 auto;
+    color: #fff;
+}
+
+// componente "Videogames"
+div.container-videogames {
+    width: 100%;
+
+    table {
+        width: 80%;
+        margin: 0 auto;
+
+        th {
+            text-align: center;
+        }
+
+        td {
+            padding-left: 5px;
+        }
+    }
+}
+
+
+// Header-Footer
+header, footer {
+    text-align: center;
+    padding: 25px 0;
+
+    h2 {
+        font-size: 25px;
+        margin-top: 20px;
+    }
+}
+
+footer {
+    font-size: 20px;
+}

@@ -10962,3 +10962,49 @@ a.text-dark:focus {
   }
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: purple;
+  width: 60%;
+  margin: 0 auto;
+  color: #fff;
+}
+
+div.container-videogames {
+  width: 100%;
+}
+
+div.container-videogames table {
+  width: 80%;
+  margin: 0 auto;
+}
+
+div.container-videogames table th {
+  text-align: center;
+}
+
+div.container-videogames table td {
+  padding-left: 5px;
+}
+
+header,
+footer {
+  text-align: center;
+  padding: 25px 0;
+}
+
+header h2,
+footer h2 {
+  font-size: 25px;
+  margin-top: 20px;
+}
+
+footer {
+  font-size: 20px;
+}
+
