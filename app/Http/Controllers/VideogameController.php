@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Videogame;
+use App\Mail\VidegameDeleteMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class VideogameController extends Controller
 {
@@ -25,6 +27,8 @@ class VideogameController extends Controller
 
         $videogame = Videogame::findOrFail($id);
         $videogame->delete();
+
+        Mail::to('loris-e-adriano@hotmail.it')->send(new VidegameDeleteMail());
 
         return json_encode($videogame);
     }
