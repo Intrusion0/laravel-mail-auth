@@ -17,9 +17,12 @@ class VidegameDeleteMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+
+    public $videogameDelete;
+
+    public function __construct($videogame)
     {
-        //
+        $this->videogameDelete = $videogame;
     }
 
     /**
