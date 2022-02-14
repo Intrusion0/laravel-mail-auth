@@ -13,7 +13,7 @@
                <td>{{ videogame.subtitle }}</td>
                <td>{{ videogame.rating }}</td>
                <td v-if="user">
-                   <button class="btn btn-danger">DELETE</button>
+                   <button @click.prevent="deleteVideogame(videogame.id)" class="btn btn-danger">DELETE</button>
                </td>
            </tr>
        </table>
@@ -32,7 +32,27 @@
             user: String
         },
         methods: {
+            deleteVideogame(id) {
 
+                axios.get(`/api/videogame/delete/${id}`)
+                     .then(r => {
+                        const ind = this.getIndexbyId(id);
+                        this.videogames.splice(ind, 1);
+                     })
+                     .catch(e => console.error(e));
+            },
+
+            getIndexbyId(id) {
+
+                for(let i = 0; i < this.videogames.length; i++) {
+
+                    const videogame = this.videogames[i];
+
+                    if (videogame.id == id) {
+                        return i;
+                    }
+                }
+            }
         },
         mounted() {
             

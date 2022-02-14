@@ -1973,12 +1973,33 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     user: String
   },
-  methods: {},
+  methods: {
+    deleteVideogame: function deleteVideogame(id) {
+      var _this = this;
+
+      axios.get("/api/videogame/delete/".concat(id)).then(function (r) {
+        var ind = _this.getIndexbyId(id);
+
+        _this.videogames.splice(ind, 1);
+      })["catch"](function (e) {
+        return console.error(e);
+      });
+    },
+    getIndexbyId: function getIndexbyId(id) {
+      for (var i = 0; i < this.videogames.length; i++) {
+        var videogame = this.videogames[i];
+
+        if (videogame.id == id) {
+          return i;
+        }
+      }
+    }
+  },
   mounted: function mounted() {
-    var _this = this;
+    var _this2 = this;
 
     axios.get('/api/videogames/list').then(function (r) {
-      return _this.videogames = r.data;
+      return _this2.videogames = r.data;
     })["catch"](function (e) {
       return console.error('e' + e);
     });
@@ -37645,9 +37666,19 @@ var render = function () {
             _vm._v(" "),
             _vm.user
               ? _c("td", [
-                  _c("button", { staticClass: "btn btn-danger" }, [
-                    _vm._v("DELETE"),
-                  ]),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger",
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.deleteVideogame(videogame.id)
+                        },
+                      },
+                    },
+                    [_vm._v("DELETE")]
+                  ),
                 ])
               : _vm._e(),
           ])

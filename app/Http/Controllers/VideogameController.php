@@ -12,10 +12,20 @@ class VideogameController extends Controller
         return view('pages.home');
     }
 
+    // All videogames
     public function getVideogames() {
 
         $videogames = Videogame::all();
 
         return json_encode($videogames);
+    }
+
+    // delete Videogames
+    public function deleteVideogame($id) {
+
+        $videogame = Videogame::findOrFail($id);
+        $videogame->delete();
+
+        return json_encode($videogame);
     }
 }

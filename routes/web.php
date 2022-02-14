@@ -15,3 +15,5 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Route api
 Route::get('/api/videogames/list', 'VideogameController@getVideogames')->name('api.videogames.list');
+
+Route::get('/api/videogame/delete/{id}', 'VideogameController@deleteVideogame')->name('api.videogames.delete');
