@@ -1960,11 +1960,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       videogames: []
     };
+  },
+  props: {
+    user: String
   },
   methods: {},
   mounted: function mounted() {
@@ -37614,33 +37621,43 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-videogames" }, [
-    _c("table", { attrs: { border: "1" } }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("tr", [
-        _c("td", [_vm._v(_vm._s(_vm.videogames.title))]),
+    _c(
+      "table",
+      { attrs: { border: "1" } },
+      [
+        _c("tr", [
+          _c("th", [_vm._v("Title")]),
+          _vm._v(" "),
+          _c("th", [_vm._v("Subtitle")]),
+          _vm._v(" "),
+          _c("th", [_vm._v("Rating")]),
+          _vm._v(" "),
+          _vm.user ? _c("th", [_vm._v("Action")]) : _vm._e(),
+        ]),
         _vm._v(" "),
-        _c("td", [_vm._v(_vm._s(_vm.videogames.subtitle))]),
-        _vm._v(" "),
-        _c("td", [_vm._v(_vm._s(_vm.videogames.rating))]),
-      ]),
-    ]),
+        _vm._l(_vm.videogames, function (videogame) {
+          return _c("tr", { key: videogame.id }, [
+            _c("td", [_vm._v(_vm._s(videogame.title))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(videogame.subtitle))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(videogame.rating))]),
+            _vm._v(" "),
+            _vm.user
+              ? _c("td", [
+                  _c("button", { staticClass: "btn btn-danger" }, [
+                    _vm._v("DELETE"),
+                  ]),
+                ])
+              : _vm._e(),
+          ])
+        }),
+      ],
+      2
+    ),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("th", [_vm._v("Title")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Subtitle")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Rating")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -16,8 +16,6 @@ class VideogameController extends Controller
 
         $videogames = Videogame::all();
 
-        dd($videogames);
-
         return json_encode($videogames);
     }
 }

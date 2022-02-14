@@ -4,16 +4,16 @@
 
     @auth
 
-    <div>
+    <div class="container-user">
         Benvenuto {{ Auth::user()->name }}
     </div>
     
-    <a href="#">LOGOUT</a>
+    <a class="btn btn-secondary" href="{{ route('logout') }}">LOGOUT</a>
 
     @else
 
     <h2>REGISTER</h2>
-    <form action="#" method="POST">
+    <form action="{{ route('register') }}" method="POST">
         
         @method('POST')
         @csrf
@@ -33,7 +33,7 @@
     <br><br>
 
     <h2>LOGIN</h2>
-    <form action="#" method="POST">
+    <form action="{{ route('login') }}" method="POST">
 
         @method('POST')
         @csrf

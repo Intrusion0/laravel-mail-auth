@@ -1,6 +1,6 @@
 @extends('layouts.main-layout')
 @section('content')
 
-    <videogames-component></videogames-component>
+    <videogames-component user="{{ Auth::check() }}" ></videogames-component>
     
 @endsection

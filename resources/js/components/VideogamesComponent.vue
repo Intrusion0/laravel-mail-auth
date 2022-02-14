@@ -6,11 +6,15 @@
                <th>Title</th>
                <th>Subtitle</th>
                <th>Rating</th>
+               <th v-if="user">Action</th>
            </tr>
-           <tr>
-               <td>{{ videogames.title }}</td>
-               <td>{{ videogames.subtitle }}</td>
-               <td>{{ videogames.rating }}</td>
+           <tr v-for="videogame in videogames" :key="videogame.id">
+               <td>{{ videogame.title }}</td>
+               <td>{{ videogame.subtitle }}</td>
+               <td>{{ videogame.rating }}</td>
+               <td v-if="user">
+                   <button class="btn btn-danger">DELETE</button>
+               </td>
            </tr>
        </table>
    </div>
@@ -23,6 +27,9 @@
             return {
                 videogames: []
             }
+        },
+        props: {
+            user: String
         },
         methods: {
 
